@@ -81,3 +81,20 @@ function getCoords(position) {
 function showCurrentTemp() {
   navigator.geolocation.getCurrentPosition(getCoords);
 }
+let cities = document.body.querySelector(".col-3").children;
+cities[0].addEventListener("click", () => showBtnCitiyTemp(cities[0]));
+cities[1].addEventListener("click", () => showBtnCitiyTemp(cities[1]));
+cities[2].addEventListener("click", () => showBtnCitiyTemp(cities[2]));
+cities[3].addEventListener("click", () => showBtnCitiyTemp(cities[3]));
+cities[4].addEventListener("click", () => showBtnCitiyTemp(cities[4]));
+function showBtnCitiyTemp(cityName) {
+  cityname = cityName.innerHTML;
+  urlCity = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}&units=metric`;
+  axios
+    .get(urlCity)
+    .then(
+      (response) =>
+        (temperature.innerHTML = Math.round(response.data.main.temp))
+    );
+  city.innerHTML = cityname;
+}
