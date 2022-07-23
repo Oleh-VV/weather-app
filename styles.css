@@ -130,9 +130,8 @@
   font-size: 48px;
   font-family: "Abril Fatface", cursive;
 }
-#sun {
-  color: yellow;
-  font-size: 30px;
+#icon-weather {
+  width: 40px;
 }
 .week {
   border: 2px solid #045d71;

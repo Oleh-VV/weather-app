@@ -4,12 +4,14 @@ function showCity(event) {
 
   cityname = cityname[0].toUpperCase() + cityname.slice(1).toLowerCase();
   urlCity = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}&units=metric`;
-  axios
-    .get(urlCity)
-    .then(
-      (response) =>
-        (temperature.innerHTML = Math.round(response.data.main.temp))
+  axios.get(urlCity).then((response) => {
+    temperature.innerHTML = Math.round(response.data.main.temp);
+
+    icon_weather.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+  });
   city.innerHTML = cityname;
 }
 function showDate() {
@@ -43,6 +45,7 @@ form.addEventListener("submit", showCity);
 let currentbtn = document.querySelector("#currentbtn");
 currentbtn.addEventListener("click", showCurrentTemp);
 setInterval(showDate, 1000);
+let icon_weather = document.querySelector("#icon-weather");
 let unitCels = document.querySelector("#celsius");
 let unitFahr = document.querySelector("#fahrenheit");
 let temperature = document.querySelector("#temperature");
@@ -54,11 +57,14 @@ let cityname;
 let apiKey = "ae0d6c1e0f247031b20f4e5e8d4b4dc6";
 temperature.innerHTML = tempCels;
 let urlCity = `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=${apiKey}&units=metric`;
-axios
-  .get(urlCity)
-  .then(
-    (response) => (temperature.innerHTML = Math.round(response.data.main.temp))
+axios.get(urlCity).then((response) => {
+  console.log(response.data.weather[0].icon);
+  temperature.innerHTML = Math.round(response.data.main.temp);
+  icon_weather.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+});
 city.innerHTML = "Kyiv";
 
 let tempFahr = Math.round((tempCels * 9) / 5 + 32);
@@ -90,11 +96,12 @@ cities[4].addEventListener("click", () => showBtnCitiyTemp(cities[4]));
 function showBtnCitiyTemp(cityName) {
   cityname = cityName.innerHTML;
   urlCity = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}&units=metric`;
-  axios
-    .get(urlCity)
-    .then(
-      (response) =>
-        (temperature.innerHTML = Math.round(response.data.main.temp))
+  axios.get(urlCity).then((response) => {
+    temperature.innerHTML = Math.round(response.data.main.temp);
+    icon_weather.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+  });
   city.innerHTML = cityname;
 }
