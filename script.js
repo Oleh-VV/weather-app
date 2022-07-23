@@ -1,16 +1,25 @@
+function getWeatherInfo(response) {
+  icon_weather.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon_weather.setAttribute("alt", "response.data.weather[0].description");
+  let sky = document.querySelector(".sky");
+  let humidity = document.querySelector(".humidity");
+  let wind = document.querySelector(".wind");
+  let s;
+  sky.innerHTML = response.data.weather[0].main;
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = response.data.wind.speed;
+}
 function showCity(event) {
   event.preventDefault();
   cityname = document.querySelector("#searchfield").value;
-
   cityname = cityname[0].toUpperCase() + cityname.slice(1).toLowerCase();
   urlCity = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}&units=metric`;
   axios.get(urlCity).then((response) => {
     temperature.innerHTML = Math.round(response.data.main.temp);
-
-    icon_weather.setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+    getWeatherInfo(response);
   });
   city.innerHTML = cityname;
 }
@@ -60,10 +69,7 @@ let urlCity = `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=${ap
 axios.get(urlCity).then((response) => {
   console.log(response.data.weather[0].icon);
   temperature.innerHTML = Math.round(response.data.main.temp);
-  icon_weather.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+  getWeatherInfo(response);
 });
 city.innerHTML = "Kyiv";
 
@@ -75,14 +81,11 @@ function getCoords(position) {
   lat = position.coords.latitude;
   lon = position.coords.longitude;
   url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios
-    .get(url)
-    .then(
-      (response) => (
-        (temperature.innerHTML = Math.round(response.data.main.temp)),
-        (city.innerHTML = response.data.name)
-      )
-    );
+  axios.get(url).then((response) => {
+    temperature.innerHTML = Math.round(response.data.main.temp);
+    city.innerHTML = response.data.name;
+    getWeatherInfo(response);
+  });
 }
 function showCurrentTemp() {
   navigator.geolocation.getCurrentPosition(getCoords);
@@ -98,10 +101,7 @@ function showBtnCitiyTemp(cityName) {
   urlCity = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}&units=metric`;
   axios.get(urlCity).then((response) => {
     temperature.innerHTML = Math.round(response.data.main.temp);
-    icon_weather.setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+    getWeatherInfo(response);
   });
   city.innerHTML = cityname;
 }
