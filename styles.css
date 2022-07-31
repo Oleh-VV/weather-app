@@ -194,7 +194,7 @@
 .week {
   border: 2px solid #045d71;
   border-radius: 15px;
-  margin: 80px auto;
+  margin: 50px auto;
   text-align: center;
   font-size: 20px;
 }
@@ -206,4 +206,7 @@
   position: relative;
   top: -15px;
   font-size: 14px;
+}
+.temp-min {
+  opacity: 0.5;
 }
