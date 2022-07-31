@@ -1,6 +1,3 @@
-body {
-  background-color: #fdfae3;
-}
 #submitbtn {
   border-radius: 40px;
   color: azure;
@@ -58,7 +55,7 @@ body {
 }
 #searchfield {
   margin-top: 50px;
-  width: 300px;
+  max-width: 300px;
   border-radius: 10px;
   border: 3px solid rgb(98, 4, 98);
   background-image: linear-gradient(
@@ -97,16 +94,65 @@ body {
   background-color: #55d9f7;
   box-shadow: 0px 0px 5px darkblue;
 }
-@media (max-width: 700px) {
-  .city,
+
+@media (max-width: 500px) {
   .day,
   .spancity {
     font-size: 14px;
     border-radius: 6px;
   }
+  .col-9 #showdisp {
+    padding: 5px;
+    width: 100%;
+    flex-direction: column;
+  }
+  #showdisp p,
+  #showdisp span {
+    font-size: 14px;
+  }
+  #showdisp #currentdate {
+    margin-bottom: 50px;
+  }
+  #showdisp ul,
+  #showdisp ul span {
+    font-size: 10px;
+  }
+  #showdisp #icon-weather {
+    width: 30px;
+  }
+  #showdisp #units {
+    top: 0px;
+  }
+  #showdisp .spancity {
+    font-size: 20px;
+  }
+  .row-week {
+    justify-content: space-around;
+  }
+  .row-week .week {
+    padding: 0;
+    margin: 10px 0 0 0;
+  }
+  .week span {
+    margin-top: 10px;
+    font-size: 12px;
+  }
   form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+  .col-3 .city {
+    padding: 5px 0px;
+    margin: 30px 30px 0 0;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  #currentbtn {
+    margin-top: 0;
+  }
+  #submitbtn {
+    margin: 20px;
   }
 }
 .fa-sun {
