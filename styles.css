@@ -1,4 +1,31 @@
-#submitbtn {
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #2a0518;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 50%;
+  position: fixed;
+  top: 10%;
+  left: 25%;
+  background-color: rgba(256, 256, 256, 0.5);
+  border-radius: 10px;
+  padding: 1px;
+}
+
+/*  search-block   */
+
+.submitbtn {
   border-radius: 40px;
   color: azure;
   background-image: linear-gradient(
@@ -8,15 +35,14 @@
     #6c053c 100%
   );
   padding: 5px 25px;
-  margin: 50px 0px 50px 10px;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   font-family: "kalam";
   text-align: center;
   transition: 0.3s;
   box-shadow: 0 0 20px #eee;
 }
-#currentbtn {
+.currentbtn {
   border-radius: 40px;
   color: black;
   background-image: linear-gradient(
@@ -26,25 +52,24 @@
     #0dca5f 100%
   );
   padding: 5px 25px;
-  margin: 50px 10px;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   font-family: "kalam";
   text-align: center;
   transition: 0.3s;
   box-shadow: 0 0 20px #eee;
 }
-#submitbtn:hover {
+.submitbtn:hover {
   background-image: linear-gradient(
     to right,
     #f185bd 0%,
     #e7097f 51%,
     #d15394 100%
   );
-
   color: #33001b;
+  cursor: pointer;
 }
-#currentbtn:hover {
+.currentbtn:hover {
   background-image: linear-gradient(
     to right,
     #93efbb 0%,
@@ -52,25 +77,29 @@
     #93efbb 100%
   );
   color: rgb(238, 222, 193);
+  text-shadow: 1px 1px 10px black;
+  cursor: pointer;
 }
-#searchfield {
-  margin-top: 50px;
-  max-width: 300px;
-  border-radius: 10px;
+.searchfield {
+  max-width: 500px;
+  border-radius: 30px;
   border: 3px solid rgb(98, 4, 98);
   background-image: linear-gradient(
     to right,
     #f9b2d7 0%,
-    #f9d3e7 51%,
+    #f9d3e7 31%,
+    #f9d3e7 81%,
     #cf93b2 100%
   );
   color: #33001b;
   font-family: "kalam";
+  padding: 5px 25px;
+  font-size: 1.15rem;
 }
-#searchfield:hover {
+.searchfield:hover {
   box-shadow: 0px 0px 5px darkblue;
 }
-#searchfield:focus {
+.searchfield:focus {
   background-image: linear-gradient(
     to right,
     #b2ecf9 0%,
@@ -78,16 +107,93 @@
     #b2ecf9 100%
   );
 }
+.search-block {
+  width: 90%;
+  margin: 0 auto;
+}
+.search-block form {
+  margin-top: 50px;
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+}
+.btn-block {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* main display  */
+
+.content-block {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+.show-block {
+  flex-basis: 80%;
+}
+.today-weather {
+  padding: 25px 40px;
+  border: 2px solid #045d71;
+  border-radius: 15px;
+  background-color: rgba(256, 256, 256, 0.5);
+  font-size: 1.6rem;
+  color: rgb(85, 10, 87);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-top: 30px;
+}
+.info-block {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.icon-temp-block {
+  display: flex;
+  align-items: center;
+}
+#icon-weather {
+  max-width: 80px;
+}
+.date-temp-block p {
+  margin-bottom: 0;
+}
+.main-city {
+  font-size: 3rem;
+  font-family: "Abril Fatface", cursive;
+}
+.units {
+  position: relative;
+  top: -15px;
+  font-size: 0.9rem;
+}
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+ul span {
+  color: #b80464;
+}
+
+/* city btn block*/
+
 .city {
   color: rgb(85, 10, 87);
   font-family: "Abril Fatface", cursive;
   padding: 10px 5px;
-  margin: 30px 10px;
+  margin: 20px 10px;
   border-radius: 30px;
   background-color: #8bdef1;
   border: 2px solid #045d71;
-  font-size: 24px;
+  font-size: 1.5rem;
   text-align: center;
+  box-shadow: 1px 2px 5px rgba(85, 10, 87, 0.8) inset;
+}
+
+.city:first-child {
+  margin: 30px 10px;
 }
 .city:hover {
   cursor: pointer;
@@ -95,118 +201,157 @@
   box-shadow: 0px 0px 5px darkblue;
 }
 
-@media (max-width: 500px) {
-  .day,
-  .spancity {
-    font-size: 14px;
-    border-radius: 6px;
-  }
-  .col-9 #showdisp {
-    padding: 5px;
-    width: 100%;
-    flex-direction: column;
-  }
-  #showdisp p,
-  #showdisp span {
-    font-size: 14px;
-  }
-  #showdisp #currentdate {
-    margin-bottom: 50px;
-  }
-  #showdisp ul,
-  #showdisp ul span {
-    font-size: 10px;
-  }
-  #showdisp #icon-weather {
-    width: 30px;
-  }
-  #showdisp #units {
-    top: 0px;
-  }
-  #showdisp .spancity {
-    font-size: 20px;
-  }
-  .row-week {
-    justify-content: space-around;
-  }
-  .row-week .week {
-    padding: 0;
-    margin: 10px 0 0 0;
-  }
-  .week span {
-    margin-top: 10px;
-    font-size: 12px;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .col-3 .city {
-    padding: 5px 0px;
-    margin: 30px 30px 0 0;
-    border-radius: 6px;
-    font-size: 14px;
-  }
-  #currentbtn {
-    margin-top: 0;
-  }
-  #submitbtn {
-    margin: 20px;
-  }
-}
-.fa-sun {
-  color: yellow;
-  margin-right: 10px;
-  font-size: 18px;
-}
-.container {
-  margin-top: 50px;
-}
-#showdisp {
-  max-width: 80%;
-  padding: 25px 40px;
+/*  forecast block  */
+.forecast-btn-block {
   display: flex;
-  justify-content: space-between;
-  margin-top: 0px;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+.forecast-btn-block button {
   border: 2px solid #045d71;
   border-radius: 15px;
-  background-color: #d7eff5;
-  font-size: 26px;
+  text-align: center;
+  font-size: 1rem;
+  padding: 5px 10px;
   color: rgb(85, 10, 87);
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-#showdisp ul {
-  padding: 0;
-  list-style-type: none;
-}
-#showdisp ul span {
-  color: #b80464;
-}
-.spancity {
-  font-size: 48px;
   font-family: "Abril Fatface", cursive;
+  background-color: rgba(256, 256, 256, 0.5);
+  box-shadow: 3px 3px 5px black;
+  width: 120px;
+  cursor: pointer;
 }
-#icon-weather {
-  width: 50px;
-  vertical-align: middle;
+.forecast-btn-block button:hover {
+  background-color: rgba(256, 256, 256, 0.3);
+  box-shadow: 3px 3px 8px #045d71;
+}
+.forecast-weather {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 .week {
   border: 2px solid #045d71;
   border-radius: 15px;
-  margin: 50px auto;
+  margin: 20px auto;
   text-align: center;
-  font-size: 20px;
+  font-size: 1.25rem;
+}
+.week img {
+  width: 100%;
 }
 .day {
   font-weight: 900;
   color: rgb(85, 10, 87);
 }
-#units {
-  position: relative;
-  top: -15px;
-  font-size: 14px;
-}
+
 .temp-min {
   opacity: 0.5;
+}
+
+@media screen and (max-width: 1325px) {
+  html {
+    font-size: 12px;
+  }
+  .container {
+    width: 70%;
+    left: 15%;
+  }
+  .week img {
+    width: 80%;
+  }
+  .week {
+    flex-basis: 15%;
+    gap: 2%;
+    margin: 20px 0;
+  }
+}
+@media screen and (max-width: 920px) {
+  .container {
+    width: 80%;
+    left: 10%;
+  }
+
+  .show-block {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 90%;
+    left: 5%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .show-block {
+    max-width: 80%;
+  }
+  .info-block .city-btn-block {
+    flex-basis: 30%;
+  }
+  .forecast-weather {
+    gap: 2.5%;
+  }
+  .forecast-btn-block button {
+    width: 80px;
+  }
+  .submitbtn {
+    padding: 5px 15px;
+    margin-left: 20px;
+  }
+  .currentbtn {
+    padding: 5px 15px;
+    margin-left: 20px;
+  }
+}
+@media screen and (max-width: 573px) {
+  #icon-weather {
+    max-width: 50px;
+  }
+  html {
+    font-size: 10px;
+  }
+  #formsearch {
+    gap: 3px;
+  }
+  .btn-block {
+    gap: 3px;
+  }
+}
+@media screen and (max-width: 463px) {
+  #icon-weather {
+    max-width: 30px;
+  }
+  .forecast-btn-block button {
+    width: 60px;
+  }
+  html {
+    font-size: 8px;
+  }
+  .city {
+    padding: 5px;
+  }
+  .date-temp-block p {
+    margin-bottom: 10px;
+  }
+  .search-block form {
+    flex-direction: column;
+  }
+  .submitbtn {
+    padding: 5px 15px;
+    margin-left: 0px;
+    width: 30%;
+  }
+  .currentbtn {
+    padding: 5px 15px;
+    margin-left: 0px;
+    width: 30%;
+    margin-top: 10px;
+  }
+  .btn-block {
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
 }

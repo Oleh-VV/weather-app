@@ -3,14 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SheCodes</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-      crossorigin="anonymous"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,59 +15,82 @@
       href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://kit.fontawesome.com/eb5dbdf2a1.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+          <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-9">
+<!--- search-block --->
+      <div class="search-block">
           <form id="formsearch">
             <input
               type="search"
               placeholder="Enter the city"
-              id="searchfield"
+              class="searchfield"
             />
-            <input type="submit" value="Search" id="submitbtn" />
-            <input type="button" value="Current" id="currentbtn" />
+<div class = 'btn-block'>
+            <input type="submit" value="Search" class="submitbtn" />
+            <input type="button" value="Current" class="currentbtn" />
           </form>
-          <div id="showdisp">
-            <p>
-              <span class="spancity"></span><br /><span id="currentdate"></span
-              ><br />
+    </div></div>
+
+<!--- content-block --->
+
+
+
+   <div class="content-block">      
+         <div class="show-block"> 
+
+<!--- main display ---> 
+
+              <div class="today-weather">
+                <div class = 'city-block'> <span class="main-city"></span></div>
+                 <div class = 'info-block'><div class='date-temp-block'><p><span class="currentdate"></span
+              ></p>
+<div class='icon-temp-block'>
               <img
                 id="icon-weather"
                 src="http://openweathermap.org/img/wn/10d@2x.png"
                 alt="icon-weather"
-              /><span id="temperature"> </span>
-              <span id="units">
-                <a href="#" id="celsius">°C</a>|<a href="#" id="fahrenheit"
-                  >°F</a
-                >
+              /><span class="temperature"> </span>
+              <span class="units">
+                <a href="#" class="celsius">°C</a>|<a href="#" class="fahrenheit" >°F</a >
               </span>
-            </p>
+          </div></div>
             <ul class="weather-description">
               <li>Sky: <span class="sky"></span></li>
-              <li>Humidity: <span class="humidity"></span> <span>%</span></li>
-              <li>wind: <span class="wind"></span> <span>km/h</span></li>
+              <li>Humidity: <span class="humidity"></span><span>%</span></li>
+              <li>wind: <span class="wind"></span><span>km/h</span></li>
             </ul>
-          </div>
-        </div>
+            </div>   </div>
 
-        <div class="col-3">
-          <div class="col city">Riga</div>
-          <div class="col city">London</div>
-          <div class="col city">Paris</div>
-          <div class="col city">Lisbon</div>
-          <div class="col city">Prague</div>
-        </div>
-      </div>
-      <div class="row row-week" id="forecast"></div></div>
+<!--- forecast-weather --->     
+  <div class="forecast-btn-block"> 
+<button type='button' class='days-5'>5 days</button>
+<button type='button' class='days-7'>10 days</button>
+              </div>        
+              <div class="forecast-weather"> 
+              </div>  
+         </div> 
+<!--- city-btn-weather --->   
+         <div class="city-btn-block"> 
+     <div class="city">Toronto</div>  
+         <div class="city">Riga</div>
+          <div class="city">London</div>
+          <div class="city">Paris</div>
+          <div class="city">Lisbon</div>
+           <div class="city">Rome</div>  
+    
+         </div> 
+   </div>
+
+          
     </div>
     <script src="script.js"></script>
   </body>
 </html>
-<!--    <div class="col-2 week" id="forecast"></div>-->
+
+
+
+
+
+
