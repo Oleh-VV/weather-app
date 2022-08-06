@@ -90,20 +90,28 @@ function findCity(event) {
   cityname = cityname[0].toUpperCase() + cityname.slice(1).toLowerCase();
 }
 
-//function  get an show weather in current place
+//function  get and show weather in current place
 function showCurrentTemp() {
   navigator.geolocation.getCurrentPosition(getCoords);
-  getWeatherInfo();
 }
 function getCoords(position) {
   lat = position.coords.latitude;
   lon = position.coords.longitude;
   url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(url).then((response) => {
-    temperature.innerHTML = Math.round(response.data.main.temp);
-    city.innerHTML = response.data.name;
-    getForecast(response.data.coord);
-  });
+  axios
+    .get(url)
+    .then((response) => {
+      temperature.innerHTML = Math.round(response.data.main.temp);
+      city.innerHTML = response.data.name;
+      cityname = response.data.name;
+      urlCity = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}&units=metric`;
+    })
+    .then(() => {
+      console.log(cityname);
+      console.log(urlCity);
+
+      getWeatherInfo();
+    });
 }
 
 //function get and show weather by buttons
